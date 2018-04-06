@@ -1,0 +1,19 @@
+<h3>Nav-Tree
+   <small>An AngularJS directive that creates a Tree based on a Bootstrap "nav" list.</small>
+</h3>
+<div class="container-fluid" ng-controller="AbnTestController as tree">
+   <button class="btn btn-block btn-default btn-sm" ng-click="tree.try_async_load()">Tree Data Asynchronously (Json)</button>
+   <div class="alert alert-info">{{ tree.output }}</div>
+   <div class="row">
+      <div ng-controller="InfiniteScrollController as inf">
+         <div class="row" ui-scroll-viewport="" style="height:230px; overflow-y: auto">
+            <div class="col-sm-12">
+               <div class="well wd-wide">
+                  <span ng-if="tree.doing_async">...loading...</span>
+                  <abn-tree tree-data="tree.my_data" tree-control="tree.my_tree" on-select="tree.my_tree_handler(branch)" expand-level="2"></abn-tree>
+               </div>
+            </div>
+         </div>   
+      </div>      
+   </div>
+</div>
